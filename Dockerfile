@@ -24,10 +24,10 @@ ADD /station-type-2/station-type-2-change.yml /ansible/station-type-2-change.yml
 ######configurations
 
 #ansible configuration file
-ADD config/ansible.cfg /etc/ansible/ansible.cfg
+ADD config-files/ansible.cfg /etc/ansible/ansible.cfg
 
 #ssh-config
-ADD config/ssh_config /etc/ssh/ssh_config
+ADD config-files/ssh_config /etc/ssh/ssh_config
 
 #inventory files
 ADD collect-stations/stations-type-1 /ansible/collect-station-type-1
