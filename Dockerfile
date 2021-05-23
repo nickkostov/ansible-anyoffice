@@ -24,27 +24,27 @@ ADD /station-type-2/station-type-2-change.yml /ansible/station-type-2-change.yml
 ######configurations
 
 #ansible configuration file
-ADD config-files/ansible.cfg /etc/ansible/ansible.cfg
+ADD /config-files/ansible.cfg /etc/ansible/ansible.cfg
 
 #ssh-config
-ADD config-files/ssh_config /etc/ssh/ssh_config
+ADD /config-files/ssh_config /etc/ssh/ssh_config
 
 #inventory files
-ADD collect-stations/stations-type-1 /ansible/collect-station-type-1
-ADD collect-stations/stations-type-1 /ansible/collect-station-type-2
+ADD /collect-stations/stations-type-1 /ansible/collect-station-type-1
+ADD /collect-stations/stations-type-1 /ansible/collect-station-type-2
 
 #add the wallpaper
 #ADD files/custom-wallpaper.jpeg /ansible/custom-wallpaper.jpeg
 
 #add the configuration script for the desktop GUI
-ADD scripts/configure-gnome.sh /ansible/configure-gnome.sh
+ADD /scripts/configure-gnome.sh /ansible/configure-gnome.sh
 
 #python-collect-script
-ADD scripts/station-type-1.py /ansible/station-type-1.py
-ADD scripts/station-type-2.py /ansible/station-type-2.py
+ADD /scripts/station-type-1.py /ansible/station-type-1.py
+ADD /scripts/station-type-2.py /ansible/station-type-2.py
 ####
-ADD collect-stations/collect-station-type-1.yml /ansible/collect-station-type-1.yml
-ADD collect-stations/collect-station-type-2.yml /ansible/collect-station-type-2.yml
+ADD /collect-stations/collect-station-type-1.yml /ansible/collect-station-type-1.yml
+ADD /collect-stations/collect-station-type-2.yml /ansible/collect-station-type-2.yml
 WORKDIR /ansible
 CMD [ "ansible-playbook", "--version" ]
 
