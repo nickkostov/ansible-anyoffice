@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  ignore_unreachable: yes
+  tasks:
+          - ansible.builtin.debug:
+              msg: hostname-type-2 "{{ lookup('dig', 'hostname./A', '@192.168.0.1') }}"
