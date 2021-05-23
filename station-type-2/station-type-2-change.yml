@@ -1,0 +1,22 @@
+---
+- hosts: station-type-2
+  ignore_unreachable: yes
+  tasks:
+          - name: Add Wallpaper TASK
+            copy: src=/ansible/sportsmodule.jpeg dest=/home/user/ owner=user group=user mode=664
+
+          - name: Set Wallpaper TASK
+            become_user: user
+            dconf: key="/org/gnome/desktop/background/picture-uri" value="'file:///home/user/sportsmodule.jpeg'"
+
+          - name: Script to setupstation
+            copy: src=/ansible/setupstation.sh dest=/home/user/ owner=user group=user mode=666 
+          
+          - name: Script to change
+            command: bash /home/user/setupstation.sh
+
+          - name: Remove Changing Script
+            ansible.builtin.file:
+              path: /home/user/setupstation.sh
+              state: absent
+           

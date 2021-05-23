@@ -1,0 +1,58 @@
+---
+- hosts: station-type-2
+  ignore_unreachable: yes
+  tasks:
+          - name: Install Slack via Snap
+            snap:
+                    name: slack
+                    classic: yes
+          - name: Install AudioRecorder
+            snap:
+                    name: audio-recorder
+                    channel: beta
+          - name: Install skype via snap
+            snap:
+                    name: skype
+                    classic: yes
+          - name: Install a list of packages
+            apt:
+              pkg:
+              - linphone
+              - flameshot
+              - python3-psutil           
+
+          - name: Download Chrome dpkg file
+            get_url:
+              url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+              dest: /root/
+              mode: '0644'
+
+          - name: Install Chrome 
+            apt:
+                deb: /root/google-chrome-stable_current_amd64.deb
+          - name: Remove the installation file for chrome
+            ansible.builtin.file:
+              path: /root/google-chrome-stable_current_amd64.deb
+              state: absent
+
+          - name: Force incognito over Chrome
+            copy:
+              src: /ansible/google-chrome.desktop
+              dest: /usr/share/applications
+              owner: root
+              group: root
+              mode: '0644'
+         
+          - name: Remove the installation file for chrome
+            ansible.builtin.file:
+              path: /root/gh-pages.zip
+              state: absent
+
+          - name: APT update
+            apt:
+              update_cache: yes
+              upgrade: dist
+
+          - name: APT autoremove
+            apt:
+              autoremove: yes          
