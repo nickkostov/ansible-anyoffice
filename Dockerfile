@@ -40,8 +40,8 @@ ADD /collect-stations/stations-type-1 /ansible/collect-station-type-2
 ADD /scripts/configure-gnome.sh /ansible/configure-gnome.sh
 
 #python-collect-script
-ADD /scripts/station-type-1.py /ansible/station-type-1.py
-ADD /scripts/station-type-2.py /ansible/station-type-2.py
+ADD /scripts/stations-type-1.py /ansible/stations-type-1.py
+ADD /scripts/stations-type-2.py /ansible/stations-type-2.py
 ####
 ADD /collect-stations/collect-station-type-1.yml /ansible/collect-station-type-1.yml
 ADD /collect-stations/collect-station-type-2.yml /ansible/collect-station-type-2.yml
