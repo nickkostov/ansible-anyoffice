@@ -28,3 +28,6 @@ After the work-flow is created it will basically do the following:
 6. Possibly cleanup.
 
 Thanks for checking me out!
+
+I will provide a whole example pipeline as soon as I have time to work over it and installations steps for github runner and usage of the workflows.
+Now you could just beta test it and break it.
